@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 import logoPic from '../../statics/logo.png'
-export const HeaderWrapper = styled.div`
-position:relative
+export const HeaderWrapper = styled.div
+`
+position:relative;
 height:58px;
 border-bottom:1px solid #f0f0f0;
 `
@@ -44,24 +45,28 @@ export const NavSearch = styled.input.attrs(
         placeholder: '搜索'
     }
 )
-    `
+`
 width:160px;
 height:38px;
 margin-top:9px;
 margin-left:20px;
-padding:0px 20px;
+padding:0px 35px 0px 20px;
 box-sizing:border-box;
 border:none;
 outline:none;
 border-radius:19px;
 background:#eee;
+color:#666;
 font-size:14px;
 &::placeholder{
     color:#999;
 }
+&.focused{
+    width:200px;
+}
 `
 export const Addition = styled.div
-    `
+`
 position:absolute;
 right:0;
 top:0;
@@ -75,7 +80,8 @@ padding:0 20px;
 line-height:38px;
 border-radius:19px;
 border:1px solid #ec6149;
-font-siza:14px
+font-size:14px;
+
 &.reg{
     color:ec6419;
 }
@@ -85,14 +91,27 @@ font-siza:14px
 }
 `
 export const SearchWrapper = styled.div`
-position:relative
+position:relative;
 float:left;
+
+.slide-enter{
+    transition:all .2s ease-out
+}
+.slide-enter-active{
+    width:200px;
+}
+.slide-exit{
+    transition:all .2s ease-out
+}
+.slide-exit-active{
+    width:160px
+}
 .iconfont{
     position:absolute;
     right:5px;
     bottom:5px;
     width:30px;
-    heigth:30px;
+    height:30px;
     line-height:30px;
     border-radius:15px;
     text-align:center
