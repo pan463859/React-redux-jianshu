@@ -50,10 +50,10 @@ height:38px;
 margin-top:9px;
 margin-left:20px;
 padding:0px 20px;
-box-sizing:border-box
+box-sizing:border-box;
 border:none;
 outline:none;
-border-radius:19px
+border-radius:19px;
 background:#eee;
 font-size:14px;
 &::placeholder{
