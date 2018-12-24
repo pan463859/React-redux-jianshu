@@ -16,10 +16,10 @@ const Header = (props) => {
                 <SearchWrapper>
                     <CSSTransition
                         timeout={200}
-                        in={this.props.focused}
+                        in={props.focused}
                         classNames="slide"
                     >
-                        <NavSearch className={props.focused ? 'focused' : ''} onFocus={props.handleInputFocus} onBlur={this.props.handleInputBlur} >
+                        <NavSearch className={props.focused ? 'focused' : ''} onFocus={props.handleInputFocus} onBlur={props.handleInputBlur} >
                         </NavSearch>
                     </CSSTransition>
                     <i className='iconfont'>  &#xe800;</i>
