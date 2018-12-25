@@ -29,11 +29,11 @@ padding: 0 15px;
 font-size: 17px;
 color:#333;
 &.left{
-    float:left
+    float:left;
     color:#333;
 }
 &.right{
-    float:right
+    float:right;
     color:#969696
 }
 &.active{
