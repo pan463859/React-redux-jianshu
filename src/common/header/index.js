@@ -38,7 +38,7 @@ class Header extends Component {
         }
     }
     render() {
-        const { focused } = this.props
+        const { focused, list } = this.props
         return (
             <HeaderWrapper>
                 <Logo href='/' />
@@ -55,7 +55,7 @@ class Header extends Component {
                             in={focused}
                             classNames="slide"
                         >
-                            <NavSearch className={focused ? 'focused' : ''} onFocus={this.props.handleInputFocus} onBlur={this.props.handleInputBlur} >
+                            <NavSearch className={focused ? 'focused' : ''} onFocus={() => { this.props.handleInputFocus(list) }} onBlur={this.props.handleInputBlur} >
                             </NavSearch>
                         </CSSTransition>
                         <i className='iconfont zoom'>  &#xe800;</i>
@@ -68,7 +68,7 @@ class Header extends Component {
                         <Button className='reg'>注册</Button>
                     </Addition>
                 </Nav>
-            </HeaderWrapper>
+            </HeaderWrapper >
         )
     }
 }
@@ -85,8 +85,8 @@ const mapStateToProps = (state) => {
 const mapDispathToProps = (dispatch) => {
 
     return {
-        handleInputFocus() {
-            dispatch(actionCreators.getList())
+        handleInputFocus(list) {
+            (list.size === 0) && dispatch(actionCreators.getList())
             dispatch(actionCreators.searchFocus())
         },
         handleInputBlur() {
@@ -100,12 +100,12 @@ const mapDispathToProps = (dispatch) => {
         },
         handleChangePage(page, totalPage, spin) {
             let oriangle = spin.style.transform.replace(/[^0-9]/ig, '')
-            if(oriangle){
-                oriangle=parseInt(oriangle,10)
-            }else{
-                oriangle=0;
+            if (oriangle) {
+                oriangle = parseInt(oriangle, 10)
+            } else {
+                oriangle = 0;
             }
-            spin.style.transform='rotate('+(oriangle+360)+'deg)'
+            spin.style.transform = 'rotate(' + (oriangle + 360) + 'deg)'
             if (page < totalPage) {
                 dispatch(actionCreators.changePage(page + 1))
             } else {

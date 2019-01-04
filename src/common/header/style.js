@@ -108,6 +108,7 @@ color:#969696
 export const SearchinfoSwich = styled.span`
 float: right;
 font-size:13px;
+cursor: pointer;
 .spin{
     display:block;
     float:left;
