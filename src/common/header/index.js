@@ -5,22 +5,29 @@ import { actionCreators } from './store';
 import { connect } from 'react-redux'
 
 class Header extends Component {
-    getListArea = (show) => {
-        if (show) {
+    getListArea = (focuse) => {
+        const { page, totalPage, list, mouseIn, handleMouseenter, handleMouseleave, handleChangePage } = this.props
+        const newList = list.toJS()
+        const pagelist = []
+        if (newList.length) {
+            for (let i = ((page - 1) * 10); i < ((page) * 10); i++) {
+                pagelist.push(
+                    <SearchInfoItem key={newList[i]}>{newList[i]}</SearchInfoItem>
+                )
+            }
+        }
+        if (focuse || mouseIn) {
             return (
-                <Searchinfo>
+                <Searchinfo onMouseEnter={handleMouseenter} onMouseLeave={handleMouseleave}>
                     <SearchinfoTitle>
                         热门搜索
-                            <SearchinfoSwich>
+                            <SearchinfoSwich onClick={() => handleChangePage(page, totalPage)}>
                             换一批
                             </SearchinfoSwich>
                     </SearchinfoTitle>
                     <SearchInfoList>
                         {
-                            this.props.list.map((item) => {
-                                return <SearchInfoItem key={item}>{item}</SearchInfoItem>
-                            }
-                            )
+                            pagelist
                         }
                     </SearchInfoList>
                 </Searchinfo>
@@ -30,6 +37,7 @@ class Header extends Component {
         }
     }
     render() {
+        const { focused } = this.props
         return (
             <HeaderWrapper>
                 <Logo href='/' />
@@ -43,14 +51,14 @@ class Header extends Component {
                     <SearchWrapper>
                         <CSSTransition
                             timeout={200}
-                            in={this.props.focused}
+                            in={focused}
                             classNames="slide"
                         >
-                            <NavSearch className={this.props.focused ? 'focused' : ''} onFocus={this.props.handleInputFocus} onBlur={this.props.handleInputBlur} >
+                            <NavSearch className={focused ? 'focused' : ''} onFocus={this.props.handleInputFocus} onBlur={this.props.handleInputBlur} >
                             </NavSearch>
                         </CSSTransition>
                         <i className='iconfont'>  &#xe800;</i>
-                        {this.getListArea(this.props.focused)}
+                        {this.getListArea(focused)}
                     </SearchWrapper>
                     <Addition>
                         <Button className='writing'>
@@ -67,7 +75,10 @@ class Header extends Component {
 const mapStateToProps = (state) => {
     return {
         focused: state.getIn(['header', 'focused']),
-        list: state.getIn(['header', 'list'])
+        list: state.getIn(['header', 'list']),
+        page: state.getIn(['header', 'page']),
+        mouseIn: state.getIn(['header', 'mouseIn']),
+        totalPage: state.getIn(['header', 'totalPage']),
     }
 }
 const mapDispathToProps = (dispatch) => {
@@ -79,6 +90,20 @@ const mapDispathToProps = (dispatch) => {
         },
         handleInputBlur() {
             dispatch(actionCreators.searchblur())
+        },
+        handleMouseenter() {
+            dispatch(actionCreators.mouseEnter())
+        },
+        handleMouseleave() {
+            dispatch(actionCreators.mouseLeave())
+        },
+        handleChangePage(page, totalPage) {
+            console.log(totalPage)
+            if (page < totalPage) {
+                dispatch(actionCreators.changePage(page + 1))
+            } else {
+                dispatch(actionCreators.changePage(1))
+            }
         }
     }
 }
