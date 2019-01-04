@@ -108,6 +108,14 @@ color:#969696
 export const SearchinfoSwich = styled.span`
 float: right;
 font-size:13px;
+.spin{
+    display:block;
+    float:left;
+    font-size:12px;
+    margin-right:3px;
+    transition:all .2s ease;
+    transform-origin:center center;
+}
 `
 export const SearchInfoItem = styled.a`
 display: block;
@@ -141,7 +149,7 @@ float:left;
 .slide-exit-active{
     width:160px
 }
-.iconfont{
+.zoom{
     position:absolute;
     right:5px;
     bottom:5px;

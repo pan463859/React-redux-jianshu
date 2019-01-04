@@ -21,7 +21,8 @@ class Header extends Component {
                 <Searchinfo onMouseEnter={handleMouseenter} onMouseLeave={handleMouseleave}>
                     <SearchinfoTitle>
                         热门搜索
-                            <SearchinfoSwich onClick={() => handleChangePage(page, totalPage)}>
+                            <SearchinfoSwich onClick={() => handleChangePage(page, totalPage, this.spinIcon)}>
+                            <i ref={(icon) => { this.spinIcon = icon }} className='iconfont spin'>  &#xe606;</i>
                             换一批
                             </SearchinfoSwich>
                     </SearchinfoTitle>
@@ -57,7 +58,7 @@ class Header extends Component {
                             <NavSearch className={focused ? 'focused' : ''} onFocus={this.props.handleInputFocus} onBlur={this.props.handleInputBlur} >
                             </NavSearch>
                         </CSSTransition>
-                        <i className='iconfont'>  &#xe800;</i>
+                        <i className='iconfont zoom'>  &#xe800;</i>
                         {this.getListArea(focused)}
                     </SearchWrapper>
                     <Addition>
@@ -97,8 +98,14 @@ const mapDispathToProps = (dispatch) => {
         handleMouseleave() {
             dispatch(actionCreators.mouseLeave())
         },
-        handleChangePage(page, totalPage) {
-            console.log(totalPage)
+        handleChangePage(page, totalPage, spin) {
+            let oriangle = spin.style.transform.replace(/[^0-9]/ig, '')
+            if(oriangle){
+                oriangle=parseInt(oriangle,10)
+            }else{
+                oriangle=0;
+            }
+            spin.style.transform='rotate('+(oriangle+360)+'deg)'
             if (page < totalPage) {
                 dispatch(actionCreators.changePage(page + 1))
             } else {
