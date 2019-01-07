@@ -6,7 +6,7 @@ const defaultState = fromJS({
     focused: false,
     mouseIn: false,
     list: [],
-    page: 1,
+    page: 0,
     totalPage: 1
 })
 export default (state = defaultState, action) => {

@@ -10,7 +10,7 @@ class Header extends Component {
         const newList = list.toJS()
         const pagelist = []
         if (newList.length) {
-            for (let i = ((page - 1) * 10); i < ((page) * 10); i++) {
+            for (let i = ((page) * 10); i < ((page + 1) * 10); i++) {
                 pagelist.push(
                     <SearchInfoItem key={newList[i]}>{newList[i]}</SearchInfoItem>
                 )
@@ -106,11 +106,8 @@ const mapDispathToProps = (dispatch) => {
                 oriangle = 0;
             }
             spin.style.transform = 'rotate(' + (oriangle + 360) + 'deg)'
-            if (page < totalPage) {
-                dispatch(actionCreators.changePage(page + 1))
-            } else {
-                dispatch(actionCreators.changePage(1))
-            }
+            dispatch(actionCreators.changePage((page + 1) % totalPage))
+
         }
     }
 }
