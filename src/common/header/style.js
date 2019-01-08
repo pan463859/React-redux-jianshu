@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import logoPic from '../../statics/logo.png'
-export const HeaderWrapper = styled.div
-`
+export const HeaderWrapper = styled.div`
 position:relative;
 height:58px;
 border-bottom:1px solid #f0f0f0;
@@ -29,11 +28,11 @@ padding: 0 15px;
 font-size: 17px;
 color:#333;
 &.left{
-    float:left
+    float:left;
     color:#333;
 }
 &.right{
-    float:right
+    float:right;
     color:#969696
 }
 &.active{
@@ -44,8 +43,7 @@ export const NavSearch = styled.input.attrs(
     {
         placeholder: '搜索'
     }
-)
-`
+)`
 width:160px;
 height:38px;
 margin-top:9px;
@@ -65,8 +63,7 @@ font-size:14px;
     width:200px;
 }
 `
-export const Addition = styled.div
-`
+export const Addition = styled.div`
 position:absolute;
 right:0;
 top:0;
@@ -90,6 +87,53 @@ font-size:14px;
     background:#ec6149;
 }
 `
+export const Searchinfo = styled.div`
+position: absolute;
+left: 0;
+width: 240px;
+top: 56px;
+padding: 0 20px;
+box-shadow: 0 0 8px rgba(0,0,0,.2);
+`
+
+export const SearchinfoTitle = styled.div`
+margin-top: 20px;
+margin-bottom: 15px;
+line-height: 20px;
+font-size:14px;
+color:#969696
+`
+
+
+export const SearchinfoSwich = styled.span`
+float: right;
+font-size:13px;
+cursor: pointer;
+.spin{
+    display:block;
+    float:left;
+    font-size:12px;
+    margin-right:3px;
+    transition:all .2s ease;
+    transform-origin:center center;
+}
+`
+export const SearchInfoItem = styled.a`
+display: block;
+float: left;
+line-height: 20px;
+padding: 0 5px;
+font-size:12px;
+border:1px solid #ddd;
+border-radius:3px;
+color: #787878;
+margin-right: 15px;
+margin-bottom: 15px;
+cursor:pointer;
+`
+export const SearchInfoList = styled.div`
+overflow: hidden;
+`
 export const SearchWrapper = styled.div`
 position:relative;
 float:left;
@@ -106,7 +150,7 @@ float:left;
 .slide-exit-active{
     width:160px
 }
-.iconfont{
+.zoom{
     position:absolute;
     right:5px;
     bottom:5px;
