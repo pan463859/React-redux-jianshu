@@ -106,6 +106,7 @@ const mapDispathToProps = (dispatch) => {
                 oriangle = 0;
             }
             spin.style.transform = 'rotate(' + (oriangle + 360) + 'deg)'
+            //看完React16.7中大神讲解项目看到的方法！！
             dispatch(actionCreators.changePage((page + 1) % totalPage))
 
         }
