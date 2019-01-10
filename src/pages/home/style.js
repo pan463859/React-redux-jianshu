@@ -77,3 +77,26 @@ height:50px;
 background: url(${(props) => props.imgUrl});
 background-size:contain;
 `
+
+//作者部分
+export const WritterWrapper = styled.div`
+width:278px;
+border:1px solid #dcdcdc;
+border-radius:3px;
+height:300px;
+line-height:300px;
+text-align:center;
+`
+export const WritterItem = styled.div`
+
+`
+export const BackTop = styled.div`
+position:fixed;
+right:100px;;
+bottom:100px;;
+width:60px;
+height:60px;
+line-height:60px;
+text-align:center;
+font-size:14px;
+`

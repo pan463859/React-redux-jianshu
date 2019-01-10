@@ -34,7 +34,27 @@ const defaultState = fromJS({
             desc: '前段时间，家住江西抚州的曾ls和其未婚妻胡小姐在商店买回来一份1000份的拼图，经过不懈的努力，发现这个拼图拼出图案。。。。',
             imgurl: '../../statics/deer.jpg'
         },
-    ]
+        {
+            id: 4,
+            title: '曾ls花费两天时间拼图，结局竟然是。。。。',
+            desc: '前段时间，家住江西抚州的曾ls和其未婚妻胡小姐在商店买回来一份1000份的拼图，经过不懈的努力，发现这个拼图拼出图案。。。。',
+            imgurl: '../../statics/deer.jpg'
+        },
+        {
+            id: 5,
+            title: '曾ls花费两天时间拼图，结局竟然是。。。。',
+            desc: '前段时间，家住江西抚州的曾ls和其未婚妻胡小姐在商店买回来一份1000份的拼图，经过不懈的努力，发现这个拼图拼出图案。。。。',
+            imgurl: '../../statics/deer.jpg'
+        },
+        {
+            id: 6,
+            title: '曾ls花费两天时间拼图，结局竟然是。。。。',
+            desc: '前段时间，家住江西抚州的曾ls和其未婚妻胡小姐在商店买回来一份1000份的拼图，经过不懈的努力，发现这个拼图拼出图案。。。。',
+            imgurl: '../../statics/deer.jpg'
+        }
+    ],
+    showScroll: false
+
 })
 export default (state = defaultState, action) => {
     switch (action.type) {
