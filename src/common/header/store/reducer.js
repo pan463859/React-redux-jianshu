@@ -1,7 +1,7 @@
 import * as constants from './constants'
-import { fromJS, merge } from 'immutable'
+import { fromJS } from 'immutable'
 //immutable库
-//immutable对象
+//immutable对
 const defaultState = fromJS({
     focused: false,
     mouseIn: false,

@@ -12,7 +12,7 @@ display:block;
 width:100px;
 top:0;
 left:0;
-background:url('${logoPic}');
+background:url('${logoPic}') no-repeat;
 background-size:contain;
 `
 export const Nav = styled.div`
@@ -94,6 +94,7 @@ width: 240px;
 top: 56px;
 padding: 0 20px;
 box-shadow: 0 0 8px rgba(0,0,0,.2);
+background:#fff;
 `
 
 export const SearchinfoTitle = styled.div`
