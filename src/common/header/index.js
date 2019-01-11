@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React, { PureComponent} from 'react'
 import { SearchWrapper, HeaderWrapper, Logo, Nav, NavItem, NavSearch, Addition, Button, Searchinfo, SearchinfoTitle, SearchinfoSwich, SearchInfoItem, SearchInfoList } from './style'
 import { CSSTransition } from 'react-transition-group';
 import { actionCreators } from './store';
 import { connect } from 'react-redux'
 
-class Header extends Component {
+class Header extends PureComponent {
     getListArea = (focuse) => {
         const { page, totalPage, list, mouseIn, handleMouseenter, handleMouseleave, handleChangePage } = this.props
         const newList = list.toJS()

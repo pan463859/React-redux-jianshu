@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent} from 'react';
 import { HomeWrapper, Homeleft, HomeRight, BackTop } from './style'
 import Topic from '../components/Topic'
 import Recommend from '../components/Recommend'
 import List from '../components/List'
 import Writer from '../components/Writer'
-class Home extends Component {
+class Home extends PureComponent {
     handleScrollTop() {
         window.scroll(0, 0)
     }

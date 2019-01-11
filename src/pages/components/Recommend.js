@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { PureComponent} from 'react';
 import { RecommmendItem, RecommmendWrapper } from '../home/style'
-class Recommmend extends Component {
+class Recommmend extends PureComponent {
     render() {
         return (
             <RecommmendWrapper>
