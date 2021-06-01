@@ -72,7 +72,7 @@ class Header extends PureComponent {
         )
     }
 }
-
+//从store中的state中拿数据
 const mapStateToProps = (state) => {
     return {
         focused: state.getIn(['header', 'focused']),
@@ -82,8 +82,9 @@ const mapStateToProps = (state) => {
         totalPage: state.getIn(['header', 'totalPage']),
     }
 }
+//把所有的dispatch放在一起统一管理
+//actioncreators其实就是返回一个TYPE 一个事件名称 一个标志
 const mapDispathToProps = (dispatch) => {
-
     return {
         handleInputFocus(list) {
             (list.size === 0) && dispatch(actionCreators.getList())
